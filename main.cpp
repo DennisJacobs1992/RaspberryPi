@@ -26,7 +26,7 @@ int main (void)
 
     cout << "I am executed\n"; 
 
-    cout << readInput();
+    cout << readGyroSensor();
 
     //configure PWM channels
     ConfigPWMGPIO(11);
