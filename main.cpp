@@ -17,7 +17,7 @@ void ConfigPWMGPIO(int ConfigPwmGpio)
 
 int readMPU6050(int Mpu6050Addr)
 {
-    int val = (wiringPiI2CReadReg8(fd, Mpu6050Addr) << 8) + (wiringPiI2CReadReg8(fd, Mpu6050Addr+1);
+    int val = (wiringPiI2CReadReg8(fd, Mpu6050Addr) << 8) +  wiringPiI2CReadReg8(fd, Mpu6050Addr+1);
     if (val >= 0x8000)
     val = -(65536 - val);
     return val;
