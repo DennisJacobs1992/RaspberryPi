@@ -3,7 +3,6 @@
 #include <softPwm.h>
 
 using namespace std;
-wiringPiSetup();
 
 int main (void)
 {
@@ -11,21 +10,24 @@ int main (void)
     wiringPiSetup();
     
     //configure PWM channels
-    ConfigPWMGPIO(GPIO1);
-    ConfigPWMGPIO(GPIO2);
-    ConfigPWMGPIO(GPIO3);
-    ConfigPWMGPIO(GPIO4);
-    
+    ConfigPWMGPIO(1);
+    ConfigPWMGPIO(2);
+    ConfigPWMGPIO(3);
+    ConfigPWMGPIO(4);
+
     return 0;    
 }
 
 while(1)
 {
-    softPwmWrite(GPIO1, 15)
+    //softPwmWrite(1, 15);
+    //softPwmWrite(2, 15);
+    //softPwmWrite(3, 15);
+    //softPwmWrite(4, 15);
 }
 
-void ConfigPWMGPIO(unsigned int PwmGpio){
-    pinMode(PwmGpio, OUTPUT);
-    digitalWrite(PwmGpio, LOW);
-    softPwmCreate(PwmGpio, 0, 100);
+void ConfigPWMGPIO(int PwmGpioPin){
+    pinMode(PwmGpioPin, OUTPUT);
+    digitalWrite(PwmGpioPin, LOW);
+    softPwmCreate(PwmGpioPin, 0, 100);
 }
