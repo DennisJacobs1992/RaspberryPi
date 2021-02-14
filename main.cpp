@@ -12,12 +12,21 @@ void ConfigPWMGPIO(int PwmGpioPin)
     softPwmCreate(PwmGpioPin,0,100);
 }
 
+int readGyroSensor(int fd, int reg);
+{
+    wiringPiI2CReadReg8(fd, reg);
+    return wiringPiI2CReadReg8(fd, reg);
+}
+
 int main (void)
 {
     //initialize
     wiringPiSetup();
-    
+    wiringPiI2cSetup(0x68);
+
     cout << "I am executed\n"; 
+
+    cout << readInput();
 
     //configure PWM channels
     ConfigPWMGPIO(11);
