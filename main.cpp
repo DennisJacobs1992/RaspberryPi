@@ -24,13 +24,13 @@ int main (void)
     ConfigPWMGPIO(7);
     ConfigPWMGPIO(8);
  
-    while(1)
-    {
+    //while(1)
+    //{
         //softPwmWrite(1, 15);
         //softPwmWrite(2, 15);
         //softPwmWrite(3, 15);
         //softPwmWrite(4, 15);
-    }
+    //}
  
     return 0;    
 }
