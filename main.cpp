@@ -6,9 +6,9 @@ using namespace std;
 
 void ConfigPWMGPIO(int PwmGpioPin)
 {
-    pinMode(PwmGpioPin, OUTPUT);
-    digitalWrite(PwmGpioPin, LOW);
-    softPwmCreate(PwmGpioPin, 0, 100);
+    pinMode(PwmGpioPin,output);
+    digitalWrite(PwmGpioPin,LOW);
+    softPwmCreate(PwmGpioPin,0,100);
 }
 
 int main (void)
