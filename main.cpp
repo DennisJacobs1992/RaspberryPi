@@ -5,7 +5,8 @@
 
 using namespace std;
 
-int fd, accX, accY, accZ, gyroX, gyroY, gyroZ;
+int fd;
+double accX, accY, accZ, gyroX, gyroY, gyroZ, temp;
 int exitWhileLoop = 1;
 
 void ConfigPWMGPIO(int ConfigPwmGpio)
@@ -40,25 +41,40 @@ int main (void)
     ConfigPWMGPIO(15);
     ConfigPWMGPIO(16);
  
-    while(exitWhileLoop)
+    while(exitWhileLoop == 1)
     {
         //get sensor values
-        accX = readMPU6050(0x3B);
-        accY = readMPU6050(0x3D);
-        accZ = readMPU6050(0x3F);
 
+        temp = readMPU6050(0x41);
+
+        accX = readMPU6050(0x3B)/16384;
+        accY = readMPU6050(0x3D)/16384;
+        accZ = readMPU6050(0x3F)/16384;
+
+        gyroX = readMPU6050(0x43);
+        gyroX = readMPU6050(0x45);
+        gyroX = readMPU6050(0x47);
+
+        cout << "Temperature: " << temp << "\n";
+        
         cout << "Acceleration X: " << accX << "\n";
         cout << "Acceleration Y: " << accY << "\n";
         cout << "Acceleration Z: " << accZ << "\n";
+
+        cout << "Gyro X: " << gyroX << "\n";
+        cout << "Gyro Y: " << gyroY << "\n";
+        cout << "Gyro Z: " << gyroZ << "\n";
+
         cout << "To get another sample press 1, press annytging else to exit code execution\n";
         
-        cin >> exitWhileLoop;
+        
 
         //Set PWM pins
         //softPwmWrite(11, 15);
         //softPwmWrite(13, 15);
         //softPwmWrite(15, 15);
         //softPwmWrite(16, 15);
+        break;
     }
  
     return 0;    
