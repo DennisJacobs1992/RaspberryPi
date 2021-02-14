@@ -1,6 +1,7 @@
 #include <iostream>
 #include <wiringPi.h>
 #include <softPwm.h>
+#include <wiringPiI2C.h>
 
 using namespace std;
 
@@ -16,20 +17,20 @@ int main (void)
     //initialize
     wiringPiSetup();
     
-    cout << "I am executed"; 
+    cout << "I am executed\n"; 
 
     //configure PWM channels
-    ConfigPWMGPIO(5);
-    ConfigPWMGPIO(6);
-    ConfigPWMGPIO(7);
-    ConfigPWMGPIO(8);
+    ConfigPWMGPIO(11);
+    ConfigPWMGPIO(13);
+    ConfigPWMGPIO(15);
+    ConfigPWMGPIO(16);
  
     //while(1)
     //{
-        //softPwmWrite(1, 15);
-        //softPwmWrite(2, 15);
-        //softPwmWrite(3, 15);
-        //softPwmWrite(4, 15);
+        //softPwmWrite(11, 15);
+        //softPwmWrite(13, 15);
+        //softPwmWrite(15, 15);
+        //softPwmWrite(16, 15);
     //}
  
     return 0;    
