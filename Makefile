@@ -2,7 +2,7 @@ ouput: main.o
 	g++ main.o -o MakefileOuput
 
 main.o: main.cpp
-	g++ -c main.cpp
+	g++ main.cpp -lwiringPi
 
 target: dependencies
 	action
