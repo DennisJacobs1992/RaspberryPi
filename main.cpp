@@ -6,7 +6,7 @@ using namespace std;
 
 void ConfigPWMGPIO(int PwmGpioPin)
 {
-    pinMode(PwmGpioPin,output);
+    pinMode(PwmGpioPin,OUTPUT);
     digitalWrite(PwmGpioPin,LOW);
     softPwmCreate(PwmGpioPin,0,100);
 }
@@ -17,10 +17,10 @@ int main (void)
     wiringPiSetup();
     
     //configure PWM channels
-    ConfigPWMGPIO(1);
-    ConfigPWMGPIO(2);
-    ConfigPWMGPIO(3);
-    ConfigPWMGPIO(4);
+    ConfigPWMGPIO(5);
+    ConfigPWMGPIO(6);
+    ConfigPWMGPIO(7);
+    ConfigPWMGPIO(8);
  
     while(1)
     {
