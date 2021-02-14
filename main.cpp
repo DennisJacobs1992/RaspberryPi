@@ -6,34 +6,33 @@
 using namespace std;
 
 int fd, accX, accY, accZ, gyroX, gyroY, gyroZ;
+int exitWhileLoop = 1;
 
 void ConfigPWMGPIO(int ConfigPwmGpio)
 {
-    pinMode(ConfigPwmGpio,OUTPUT);
-    digitalWrite(ConfigPwmGpio,LOW);
-    softPwmCreate(ConfigPwmGpio,0,100);
+    pinMode(ConfigPwmGpio, OUTPUT);
+    digitalWrite(ConfigPwmGpio, LOW);
+    softPwmCreate(ConfigPwmGpio, 0, 100);
 }
 
-int readGyroSensor(int fdf, int reg)
+int readMPU6050(int Mpu6050Addr)
 {
-    wiringPiI2CReadReg8(fdf, reg);
-    return wiringPiI2CReadReg8(fdf, reg);
+    int val = (wiringPiI2CReadReg8(fd, Mpu6050Addr) << 8) + (wiringPiI2CReadReg8(fd, Mpu6050Addr+1);
+    if (val >= 0x8000)
+    val = -(65536 - val);
+    return val;
 }
 
 int main (void)
 {
-    cout << "I am executed\n"; 
+    cout << "Main function executed\n"; 
+    
     //initialize
     wiringPiSetup();
     fd = wiringPiI2CSetup (0x68);           //Initialize i2c system. returns
-    wiringPiI2CWriteReg8 (fd,0x6B,0x00);    //disable sleep mode of GY-6050 sensor module (MPU-6050)
-    cout << "fd value is: " << fd;
-    cout << "Register read for adress 0x6B returns: " << wiringPiI2CReadReg8(fd,0x6B);
-
-    //cout << readGyroSensor(0x68,0x68) << "\n";
-    //cout << readGyroSensor(0x68,0x69) << "\n";
-    //cout << readGyroSensor(0x68,0x68) << "\n";
-    //cout << readGyroSensor(0x68,0x68) << "\n";
+    wiringPiI2CWriteReg8 (fd, 0x6B, 0x00);    //disable sleep mode of GY-6050 sensor module (MPU-6050)
+    cout << "fd value is: " << fd << "\n";
+    cout << "Register read for adress 0x6B returns: " << wiringPiI2CReadReg8(fd, 0x6B) << "\n";
 
     //configure PWM channels
     ConfigPWMGPIO(11);
@@ -41,13 +40,26 @@ int main (void)
     ConfigPWMGPIO(15);
     ConfigPWMGPIO(16);
  
-    //while(1)
-    //{
+    while(exitWhileLoop)
+    {
+        //get sensor values
+        accX = readMPU6050(0x3B);
+        accY = readMPU6050(0x3D);
+        accZ = readMPU6050(0x3F);
+
+        cout << "Acceleration X: " << accX << "\n";
+        cout << "Acceleration Y: " << accY << "\n";
+        cout << "Acceleration Z: " << accZ << "\n";
+        cout << "To get another sample press 1, press annytging else to exit code execution\n";
+        
+        cin >> exitWhileLoop;
+
+        //Set PWM pins
         //softPwmWrite(11, 15);
         //softPwmWrite(13, 15);
         //softPwmWrite(15, 15);
         //softPwmWrite(16, 15);
-    //}
+    }
  
     return 0;    
 }
