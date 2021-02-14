@@ -1,8 +1,8 @@
 ouput: main.o
-	g++ main.o -lwiringPi -lwiringPiI2C -o output
+	g++ main.o -lwiringPi  -o output
 
 main.o: main.cpp
-	g++ -c main.cpp -lwiringPi -lwiringPiI2C
+	g++ -c main.cpp -lwiringPi
 
 target: dependencies
 	action
