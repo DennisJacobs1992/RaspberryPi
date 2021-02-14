@@ -22,7 +22,7 @@ int main (void)
 {
     //initialize
     wiringPiSetup();
-    wiringPiI2cSetup(0x68);
+    wiringPiI2CSetup(0x68);
 
     cout << "I am executed\n"; 
 
