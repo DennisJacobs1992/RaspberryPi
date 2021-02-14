@@ -1,11 +1,11 @@
 ouput: main.o
-	g++ a.out.o -o MakefileOuput
+	g++ main.o -o ouput
 
 main.o: main.cpp
-	g++ main.cpp -lwiringPi
+	g++ -c main.cpp -lwiringPi
 
 target: dependencies
 	action
 
 clean:
-	rm *.o MakefileOuput
+	rm *.o ouput
