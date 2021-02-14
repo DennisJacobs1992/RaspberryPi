@@ -5,28 +5,35 @@
 
 using namespace std;
 
-void ConfigPWMGPIO(int PwmGpioPin)
+int fd, accX, accY, accZ, gyroX, gyroY, gyroZ;
+
+void ConfigPWMGPIO(int ConfigPwmGpio)
 {
-    pinMode(PwmGpioPin,OUTPUT);
-    digitalWrite(PwmGpioPin,LOW);
-    softPwmCreate(PwmGpioPin,0,100);
+    pinMode(ConfigPwmGpio,OUTPUT);
+    digitalWrite(ConfigPwmGpio,LOW);
+    softPwmCreate(ConfigPwmGpio,0,100);
 }
 
-int readGyroSensor(int fd, int reg)
+int readGyroSensor(int fdf, int reg)
 {
-    wiringPiI2CReadReg8(fd, reg);
-    return wiringPiI2CReadReg8(fd, reg);
+    wiringPiI2CReadReg8(fdf, reg);
+    return wiringPiI2CReadReg8(fdf, reg);
 }
 
 int main (void)
 {
+    cout << "I am executed\n"; 
     //initialize
     wiringPiSetup();
-    wiringPiI2CSetup(0x68);
+    fd = wiringPiI2CSetup (0x68);           //Initialize i2c system. returns
+    wiringPiI2CWriteReg8 (fd,0x6B,0x00);    //disable sleep mode of GY-6050 sensor module (MPU-6050)
+    cout << "fd value is: " << fd;
+    cout << "Register read for adress 0x6B returns: " << wiringPiI2CReadReg8(fd,0x6B);
 
-    cout << "I am executed\n"; 
-
-    cout << readGyroSensor();
+    //cout << readGyroSensor(0x68,0x68) << "\n";
+    //cout << readGyroSensor(0x68,0x69) << "\n";
+    //cout << readGyroSensor(0x68,0x68) << "\n";
+    //cout << readGyroSensor(0x68,0x68) << "\n";
 
     //configure PWM channels
     ConfigPWMGPIO(11);
