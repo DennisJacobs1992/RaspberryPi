@@ -16,6 +16,8 @@ int main (void)
     //initialize
     wiringPiSetup();
     
+    cout << "I am executed"; 
+
     //configure PWM channels
     ConfigPWMGPIO(5);
     ConfigPWMGPIO(6);

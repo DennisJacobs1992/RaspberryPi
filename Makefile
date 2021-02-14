@@ -1,5 +1,5 @@
 ouput: main.o
-	g++ main.o -o ouput
+	g++ main.o -lwiringPi -o ouput
 
 main.o: main.cpp
 	g++ -c main.cpp -lwiringPi
