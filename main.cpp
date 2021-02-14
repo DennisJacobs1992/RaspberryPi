@@ -48,14 +48,20 @@ int main (void)
         temp = (temp/340) + 36.53;
 
         // Readout and scale accelerometer measurements (full scale range +/- 2g)
-        accX = readMPU6050(0x3B)/16384;
-        accY = readMPU6050(0x3D)/16384;
-        accZ = readMPU6050(0x3F)/16384;
+        accX = readMPU6050(0x3B);
+        accX = accX/16384;
+        accY = readMPU6050(0x3D);
+        accY = accY/16384;
+        accZ = readMPU6050(0x3F);
+        accZ = accZ/16384;
 
         // Readout and scale gyroscope measurements (full scale range +/- 250 degrees/second)
-        gyroX = readMPU6050(0x43)/131;
-        gyroX = readMPU6050(0x45)/131;
-        gyroX = readMPU6050(0x47)/131;
+        gyroX = readMPU6050(0x43);
+        gyroX = gyroX/131;
+        gyroY = readMPU6050(0x45);
+        gyroY = gyroY/131;
+        gyroZ = readMPU6050(0x47);
+        gyroZ = gyroZ/131;
 
         cout << "Temperature: " << temp << " degree celsius\n";
         
