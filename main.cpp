@@ -4,6 +4,13 @@
 
 using namespace std;
 
+void ConfigPWMGPIO(int PwmGpioPin)
+{
+    pinMode(PwmGpioPin, OUTPUT);
+    digitalWrite(PwmGpioPin, LOW);
+    softPwmCreate(PwmGpioPin, 0, 100);
+}
+
 int main (void)
 {
     //initialize
@@ -24,10 +31,4 @@ while(1)
     //softPwmWrite(2, 15);
     //softPwmWrite(3, 15);
     //softPwmWrite(4, 15);
-}
-
-void ConfigPWMGPIO(int PwmGpioPin){
-    pinMode(PwmGpioPin, OUTPUT);
-    digitalWrite(PwmGpioPin, LOW);
-    softPwmCreate(PwmGpioPin, 0, 100);
 }
