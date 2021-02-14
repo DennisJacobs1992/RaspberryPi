@@ -43,19 +43,20 @@ int main (void)
  
     while(exitWhileLoop == 1)
     {
-        //get sensor values
+        // Readout and scale temperature measurementsensor values (in degree celsius)
+        temp = (readMPU6050(0x41)/340) + 36.53;
 
-        temp = readMPU6050(0x41);
-
+        // Readout and scale accelerometer measurements (full scale range +/- 2g)
         accX = readMPU6050(0x3B)/16384;
         accY = readMPU6050(0x3D)/16384;
         accZ = readMPU6050(0x3F)/16384;
 
-        gyroX = readMPU6050(0x43);
-        gyroX = readMPU6050(0x45);
-        gyroX = readMPU6050(0x47);
+        // Readout and scale gyroscope measurements (full scale range +/- 250 degrees/second)
+        gyroX = readMPU6050(0x43)/131;
+        gyroX = readMPU6050(0x45)/131;
+        gyroX = readMPU6050(0x47)/131;
 
-        cout << "Temperature: " << temp << "\n";
+        cout << "Temperature: " << temp << " degree celsius\n";
         
         cout << "Acceleration X: " << accX << "\n";
         cout << "Acceleration Y: " << accY << "\n";
@@ -67,8 +68,6 @@ int main (void)
 
         cout << "To get another sample press 1, press annytging else to exit code execution\n";
         
-        
-
         //Set PWM pins
         //softPwmWrite(11, 15);
         //softPwmWrite(13, 15);
