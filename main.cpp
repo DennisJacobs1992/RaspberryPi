@@ -21,14 +21,14 @@ int main (void)
     ConfigPWMGPIO(2);
     ConfigPWMGPIO(3);
     ConfigPWMGPIO(4);
-
+ 
+    while(1)
+    {
+        //softPwmWrite(1, 15);
+        //softPwmWrite(2, 15);
+        //softPwmWrite(3, 15);
+        //softPwmWrite(4, 15);
+    }
+ 
     return 0;    
-}
-
-while(1)
-{
-    //softPwmWrite(1, 15);
-    //softPwmWrite(2, 15);
-    //softPwmWrite(3, 15);
-    //softPwmWrite(4, 15);
 }
