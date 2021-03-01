@@ -2,7 +2,7 @@
 #include <wiringPi.h>
 #include <softPwm.h>
 #include <wiringPiI2C.h>
-#include <time.h>
+#include <unistd.h>
 
 using namespace std;
 
@@ -50,19 +50,19 @@ int main (void)
     while(exitWhileLoop == 1)
     {
         softServoWrite(15,1500);
-        nanosleep(1000000000);
+        sleep(1);
         softServoWrite(15,1600);
-        nanosleep(1000000000);
+        sleep(1);
         softServoWrite(15,1700);
-        nanosleep(1000000000);
+        sleep(1);
         softServoWrite(15,1800);
-        nanosleep(1000000000);       
+        sleep(1);      
         softServoWrite(15,1900);
-        nanosleep(1000000000);
+        sleep(1);
         softServoWrite(15,2000);
-        nanosleep(1000000000);
+        sleep(1);
         softServoWrite(15,2100);
-        nanosleep(1000000000);
+        sleep(1);
         softServoWrite(15,2200);    
         // Readout and scale temperature measurementsensor values (in degree celsius)
         temp = readMPU6050(0x41);
