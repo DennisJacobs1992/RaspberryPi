@@ -3,6 +3,7 @@
 #include <softPwm.h>
 #include <wiringPiI2C.h>
 #include <unistd.h>
+#include <softServo.h>
 
 using namespace std;
 
