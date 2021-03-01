@@ -2,6 +2,7 @@
 #include <wiringPi.h>
 #include <softPwm.h>
 #include <wiringPiI2C.h>
+#include <time.h>
 
 using namespace std;
 
@@ -9,7 +10,7 @@ int fd;
 double accX, accY, accZ, gyroX, gyroY, gyroZ, temp;
 int exitWhileLoop = 1;
 
-void ConfigPWMGPIO(int ConfigPwmGpio)
+void ConfigPwmGpio(int ConfigPwmGpio)
 {
     pinMode(ConfigPwmGpio, OUTPUT);
     digitalWrite(ConfigPwmGpio, LOW);
@@ -30,19 +31,39 @@ int main (void)
     
     //initialize
     wiringPiSetup();
-    fd = wiringPiI2CSetup (0x68);           //Initialize i2c system. returns
+    fd = wiringPiI2CSetup (0x68);             //Initialize i2c system. returns
     wiringPiI2CWriteReg8 (fd, 0x6B, 0x00);    //disable sleep mode of GY-6050 sensor module (MPU-6050)
     cout << "fd value is: " << fd << "\n";
     cout << "Register read for adress 0x6B returns: " << wiringPiI2CReadReg8(fd, 0x6B) << "\n";
 
-    //configure PWM channels
-    ConfigPWMGPIO(11);
-    ConfigPWMGPIO(13);
-    ConfigPWMGPIO(15);
-    ConfigPWMGPIO(16);
- 
+    //configure PWM ESC channels
+    //ConfigPwmGpio(11);
+    //ConfigPwmGpio(13);
+    //ConfigPwmGpio(15);
+    //ConfigPwmGpio(16);
+
+    //Config Solar Panel channels
+    softServoSetup(15);
+    softServoWrite(15,1500);
+
+
     while(exitWhileLoop == 1)
     {
+        softServoWrite(15,1500);
+        nanosleep(1000000000);
+        softServoWrite(15,1600);
+        nanosleep(1000000000);
+        softServoWrite(15,1700);
+        nanosleep(1000000000);
+        softServoWrite(15,1800);
+        nanosleep(1000000000);       
+        softServoWrite(15,1900);
+        nanosleep(1000000000);
+        softServoWrite(15,2000);
+        nanosleep(1000000000);
+        softServoWrite(15,2100);
+        nanosleep(1000000000);
+        softServoWrite(15,2200);    
         // Readout and scale temperature measurementsensor values (in degree celsius)
         temp = readMPU6050(0x41);
         temp = (temp/340) + 36.53;
