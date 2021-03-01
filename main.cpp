@@ -3,7 +3,6 @@
 #include <softPwm.h>
 #include <wiringPiI2C.h>
 #include <unistd.h>
-#include <softServo.h>
 
 using namespace std;
 
@@ -44,27 +43,40 @@ int main (void)
     //ConfigPwmGpio(16);
 
     //Config Solar Panel channels
-    softServoSetup(15,16,1,0,2,3,4,5);
-    softServoWrite(15,1500);
-
+    pinMode (15, PWM_OUTPUT);
+    pwmSetMode (PWM_MODE_MS);
+    pwmSetRange (2000);
+    pwmSetClock (192);
 
     while(exitWhileLoop == 1)
     {
-        softServoWrite(15,1500);
+        pwmWrite(15,150);
         sleep(1);
-        softServoWrite(15,1600);
+        pwmWrite(15,200);
         sleep(1);
-        softServoWrite(15,1700);
+        pwmWrite(15,150);
         sleep(1);
-        softServoWrite(15,1800);
-        sleep(1);      
-        softServoWrite(15,1900);
+        pwmWrite(15,200);
         sleep(1);
-        softServoWrite(15,2000);
+        pwmWrite(15,150);
         sleep(1);
-        softServoWrite(15,2100);
+        pwmWrite(15,200);
         sleep(1);
-        softServoWrite(15,2200);    
+        pwmWrite(15,150);
+        sleep(1);
+        pwmWrite(15,200);
+        sleep(1);
+        pwmWrite(15,150);
+        sleep(1);
+        pwmWrite(15,200);
+        sleep(1);
+        pwmWrite(15,150);
+        sleep(1);
+        pwmWrite(15,200);
+        sleep(1);
+        pwmWrite(15,150);
+        sleep(1);
+        pwmWrite(15,200);
         // Readout and scale temperature measurementsensor values (in degree celsius)
         temp = readMPU6050(0x41);
         temp = (temp/340) + 36.53;
