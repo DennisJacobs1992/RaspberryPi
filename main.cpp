@@ -44,7 +44,7 @@ int main (void)
     //ConfigPwmGpio(16);
 
     //Config Solar Panel channels
-    softServoSetup(15);
+    softServoSetup(15,16,1,0,2,3,4,5);
     softServoWrite(15,1500);
 
 
