@@ -43,40 +43,20 @@ int main (void)
     //ConfigPwmGpio(16);
 
     //Config Solar Panel channels
-    pinMode (15, PWM_OUTPUT);
-    pwmSetMode (PWM_MODE_MS);
-    pwmSetRange (2000);
-    pwmSetClock (192);
+    pinMode(15,OUTPUT);
+    softPwmCreate(15,0,200);
 
     while(exitWhileLoop == 1)
     {
-        pwmWrite(15,150);
-        sleep(1);
-        pwmWrite(15,200);
-        sleep(1);
-        pwmWrite(15,150);
-        sleep(1);
-        pwmWrite(15,200);
-        sleep(1);
-        pwmWrite(15,150);
-        sleep(1);
-        pwmWrite(15,200);
-        sleep(1);
-        pwmWrite(15,150);
-        sleep(1);
-        pwmWrite(15,200);
-        sleep(1);
-        pwmWrite(15,150);
-        sleep(1);
-        pwmWrite(15,200);
-        sleep(1);
-        pwmWrite(15,150);
-        sleep(1);
-        pwmWrite(15,200);
-        sleep(1);
-        pwmWrite(15,150);
-        sleep(1);
-        pwmWrite(15,200);
+        softPwmWrite (15, 100);
+        sleep(1000);
+        softPwmWrite (15, 200);
+        sleep(1000);
+        softPwmWrite (15, 100);
+        sleep(1000);
+        softPwmWrite (15, 0);
+        sleep(1000);
+
         // Readout and scale temperature measurementsensor values (in degree celsius)
         temp = readMPU6050(0x41);
         temp = (temp/340) + 36.53;
@@ -112,6 +92,7 @@ int main (void)
         //softPwmWrite(13, 15);
         //softPwmWrite(15, 15);
         //softPwmWrite(16, 15);
+        exitWhileLoop = 2;
         break;
     }
  
