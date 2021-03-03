@@ -40,7 +40,7 @@ void testServoCode()
     delay(3000);
 }
 
-int readLdrValues()
+void readLdrValues()
 {
     struct timespec now;
     struct timespec last;
