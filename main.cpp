@@ -42,6 +42,8 @@ void testServoCode()
 
 int readLdrValues()
 {
+    struct timespec now;
+    struct timespec last;
     long int diffTime = 0;
     for (int ldrPin = 0; ldrPin < 4; ++ldrPin){
         pinMode(ldrPin, OUTPUT);
