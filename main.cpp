@@ -2,7 +2,7 @@
 #include <wiringPi.h>
 #include <softPwm.h>
 #include <wiringPiI2C.h>
-#include <unistd.h>
+#include <stdio.h>
 
 using namespace std;
 
@@ -46,16 +46,16 @@ int main (void)
     pinMode(15,OUTPUT);
     softPwmCreate(15,0,200);
 
-    while(exitWhileLoop == 1)
-    {
+    //while(exitWhileLoop == 1)
+    //{
         softPwmWrite (15, 100);
-        sleep(1000);
+        delay(3000);
         softPwmWrite (15, 200);
-        sleep(1000);
+        delay(3000);
         softPwmWrite (15, 100);
-        sleep(1000);
+        delay(3000);
         softPwmWrite (15, 0);
-        sleep(1000);
+        delay(3000);
 
         // Readout and scale temperature measurementsensor values (in degree celsius)
         temp = readMPU6050(0x41);
@@ -93,8 +93,8 @@ int main (void)
         //softPwmWrite(15, 15);
         //softPwmWrite(16, 15);
         exitWhileLoop = 2;
-        break;
-    }
+        //break;
+    //}
  
     return 0;    
 }
