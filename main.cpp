@@ -42,17 +42,16 @@ void testServoCode()
 
 int readLdrValues()
 {
-    long int saveTime = 0;
     long int diffTime = 0;
     for (int ldrPin = 0; ldrPin < 4; ++ldrPin){
         pinMode(ldrPin, OUTPUT);
         digitalWrite(ldrPin, LOW);
         delay(100);
         pinMode(ldrPin, INPUT);
-        saveTime = gettime_r.tv_nsec;
+        clock_gettime(CLOCK_REALTIME, &last);
 
         while (digitalRead() != 1){
-            diffTime = gettime_r.tv_nsec - saveTime;
+            diffTime = (last.tv_nsec - now.tv_nsec);
         }
 
         switch(ldrPin){
