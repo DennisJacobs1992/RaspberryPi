@@ -96,11 +96,22 @@ int main (void)
     pinMode(0, INPUT);
     pinMode(1, INPUT);
     pinMode(2, INPUT);
-    pinMode(3, INPUT);
-       
+    pinMode(3, INPUT); 
 
     while(1)
     {
+        // Test Read LDR values
+        /*
+        readLdrValues();
+        cout << "LDR value 1: " << ldrValue1 << "\n";
+        cout << "LDR value 2: " << ldrValue2 << "\n";
+        cout << "LDR value 3: " << ldrValue3 << "\n";
+        cout << "LDR value 4: " << ldrValue4 << "\n";
+        */
+
+        // Test servo's
+        // testServoCode();
+
         // Readout and scale temperature measurementsensor values (in degree celsius)
         temp = readMPU6050(0x41);
         temp = (temp/340) + 36.53;
