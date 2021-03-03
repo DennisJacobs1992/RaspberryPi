@@ -45,12 +45,12 @@ int readLdrValues()
     long int saveTime = 0;
     long int diffTime = 0;
     for (int ldrPin = 0; ldrPin < 4; ++ldrPin){
-        pinmode(ldrPin, OUPUT);
-        digitalRead(17, LOW);
+        pinmode(ldrPin, OUTPUT);
+        digitalWrite(ldrPin, LOW);
         delay(100);
         pinmode(ldrPin, INPUT);
         safeTime = gettime_now.tv_nsec;
-        
+
         while (digitalRead() != 1){
             diffTime = gettime_now.tv_nsec - saveTime;
         }
@@ -66,6 +66,7 @@ int readLdrValues()
                 ldrValue4 = diffTime;
             break;
         }
+        pinmode(ldrPin, INPUT;
     }
 }
 
