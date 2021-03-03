@@ -28,7 +28,7 @@ int readMPU6050(int Mpu6050Addr)
 
 void testServoCode()
 {
-    servo test code
+    // servo test code
     delay(3000);
     softPwmWrite(17, 100); //write servo 1 controll pin
     delay(3000);
@@ -45,10 +45,10 @@ int readLdrValues()
     long int saveTime = 0;
     long int diffTime = 0;
     for (int ldrPin = 0; ldrPin < 4; ++ldrPin){
-        pinmode(ldrPin, OUTPUT);
+        pinMode(ldrPin, OUTPUT);
         digitalWrite(ldrPin, LOW);
         delay(100);
-        pinmode(ldrPin, INPUT);
+        pinMode(ldrPin, INPUT);
         safeTime = gettime_now.tv_nsec;
 
         while (digitalRead() != 1){
@@ -66,7 +66,7 @@ int readLdrValues()
                 ldrValue4 = diffTime;
             break;
         }
-        pinmode(ldrPin, INPUT;
+        pinMode(ldrPin, INPUT);
     }
 }
 
