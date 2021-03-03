@@ -44,10 +44,11 @@ int main (void)
 
     //Config Solar Panel channels
     pinMode(15,OUTPUT);
-    softPwmCreate(15,0,0);
+    softPwmCreate(15,200,200);
 
     //while(exitWhileLoop == 1)
     //{
+        delay(3000);
         softPwmWrite(15, 100);
         delay(3000);
         softPwmWrite(15, 200);
