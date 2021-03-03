@@ -3,12 +3,13 @@
 #include <softPwm.h>
 #include <wiringPiI2C.h>
 #include <stdio.h>
+#include <time.h>
 
 using namespace std;
 
 int fd;
 double accX, accY, accZ, gyroX, gyroY, gyroZ, temp;
-int exitWhileLoop = 1;
+long int ldrValue1, ldrValue2, ldrValue3, ldrValue4;
 
 void ConfigPwmGpio(int ConfigPwmGpio)
 {
@@ -25,6 +26,49 @@ int readMPU6050(int Mpu6050Addr)
     return val;
 }
 
+void testServoCode()
+{
+    servo test code
+    delay(3000);
+    softPwmWrite(17, 100); //write servo 1 controll pin
+    delay(3000);
+    softPwmWrite(17, 200);
+    delay(3000);
+    softPwmWrite(17, 100);
+    delay(3000);
+    softPwmWrite(17, 0);
+    delay(3000);
+}
+
+int readLdrValues()
+{
+    long int saveTime = 0;
+    long int diffTime = 0;
+    for (int ldrPin = 0; ldrPin < 4; ++ldrPin){
+        pinmode(ldrPin, OUPUT);
+        digitalRead(17, LOW);
+        delay(100);
+        pinmode(ldrPin, INPUT);
+        safeTime = gettime_now.tv_nsec;
+        
+        while (digitalRead() != 1){
+            diffTime = gettime_now.tv_nsec - saveTime;
+        }
+
+        switch(ldrPin){
+            case 0:
+                ldrValue1 = diffTime; 
+            case 1:
+                ldrValue2 = diffTime;
+            case 2:
+                ldrValue3 = diffTime;
+            case 3:
+                ldrValue4 = diffTime;
+            break;
+        }
+    }
+}
+
 int main (void)
 {
     cout << "Main function executed\n"; 
@@ -33,31 +77,28 @@ int main (void)
     wiringPiSetup();
     fd = wiringPiI2CSetup (0x68);             //Initialize i2c system. returns
     wiringPiI2CWriteReg8 (fd, 0x6B, 0x00);    //disable sleep mode of GY-6050 sensor module (MPU-6050)
-    cout << "fd value is: " << fd << "\n";
-    cout << "Register read for adress 0x6B returns: " << wiringPiI2CReadReg8(fd, 0x6B) << "\n";
+    //cout << "fd value is: " << fd << "\n";
+    //cout << "Register read for adress 0x6B returns: " << wiringPiI2CReadReg8(fd, 0x6B) << "\n";
 
-    //configure PWM ESC channels
-    //ConfigPwmGpio(11);
-    //ConfigPwmGpio(13);
-    //ConfigPwmGpio(15);
-    //ConfigPwmGpio(16);
+    //Config servo pins (17,18,19,20)
+    pinMode(17, OUTPUT); //set servo 1 controll pin
+    pinMode(18, OUTPUT); //set servo 2 controll pin
+    pinMode(19, OUTPUT); //set servo 3 controll pin
+    pinMode(20, OUTPUT); //set servo 4 controll pin
+    softPwmCreate(17, 0, 200); //create pwm controll pin for servo 1
+    softPwmCreate(18, 0, 200); //create pwm controll pin for servo 2
+    softPwmCreate(19, 0, 200); //create pwm controll pin for servo 3
+    softPwmCreate(20, 0, 200); //create pwm controll pin for servo 4
 
-    //Config Solar Panel channels
-    pinMode(15,OUTPUT);
-    softPwmCreate(15,200,200);
+    //config ldr pins (0,1,2,3)
+    pinmode(0, INPUT);
+    pinmode(1, INPUT);
+    pinmode(2, INPUT);
+    pinmode(3, INPUT);
+       
 
-    //while(exitWhileLoop == 1)
-    //{
-        delay(3000);
-        softPwmWrite(15, 100);
-        delay(3000);
-        softPwmWrite(15, 200);
-        delay(3000);
-        softPwmWrite(15, 100);
-        delay(3000);
-        softPwmWrite(15, 0);
-        delay(3000);
-
+    while(1)
+    {
         // Readout and scale temperature measurementsensor values (in degree celsius)
         temp = readMPU6050(0x41);
         temp = (temp/340) + 36.53;
@@ -88,14 +129,8 @@ int main (void)
         cout << "Gyro Y: " << gyroY << "\n";
         cout << "Gyro Z: " << gyroZ << "\n";
         
-        //Set PWM pins
-        //softPwmWrite(11, 15);
-        //softPwmWrite(13, 15);
-        //softPwmWrite(15, 15);
-        //softPwmWrite(16, 15);
-        exitWhileLoop = 2;
-        //break;
-    //}
+        break;
+    }
  
     return 0;    
 }
