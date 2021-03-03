@@ -49,10 +49,10 @@ int readLdrValues()
         digitalWrite(ldrPin, LOW);
         delay(100);
         pinMode(ldrPin, INPUT);
-        safeTime = gettime_now.tv_nsec;
+        saveTime = gettime_r.tv_nsec;
 
         while (digitalRead() != 1){
-            diffTime = gettime_now.tv_nsec - saveTime;
+            diffTime = gettime_r.tv_nsec - saveTime;
         }
 
         switch(ldrPin){
