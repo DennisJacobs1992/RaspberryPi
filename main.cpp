@@ -52,7 +52,7 @@ int readLdrValues()
         pinMode(ldrPin, INPUT);
         clock_gettime(CLOCK_REALTIME, &last);
 
-        while (digitalRead() != 1){
+        while (digitalRead(ldrPin) != 1){
             diffTime = (last.tv_nsec - now.tv_nsec);
         }
 
@@ -93,10 +93,10 @@ int main (void)
     softPwmCreate(20, 0, 200); //create pwm controll pin for servo 4
 
     //config ldr pins (0,1,2,3)
-    pinmode(0, INPUT);
-    pinmode(1, INPUT);
-    pinmode(2, INPUT);
-    pinmode(3, INPUT);
+    pinMode(0, INPUT);
+    pinMode(1, INPUT);
+    pinMode(2, INPUT);
+    pinMode(3, INPUT);
        
 
     while(1)
