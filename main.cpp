@@ -121,7 +121,7 @@ int main (void)
         */
 
         // Test servo's
-        // testServoCode();
+        testServoCode();
 
         // Readout and scale temperature measurementsensor values (in degree celsius)
         temp = readMPU6050(0x41);
