@@ -30,7 +30,7 @@ int readMPU6050(int Mpu6050Addr)
 void servoProcess(int inputServoValue)
 {
     counter = 0;
-    while (counter < 201){
+    while (counter < 101){
        digitalWrite (4, HIGH);
        delay(20 - inputServoValue); 
        digitalWrite (4, LOW);
@@ -44,13 +44,13 @@ void testServoCode()
     digitalWrite (4, LOW);
     servoValue = 0;
     servoProcess(0);
-    servoProcess(5);
-    servoProcess(10);
-    servoProcess(15);
-    servoProcess(20);
-    servoProcess(15);
-    servoProcess(10);
-    servoProcess(5);
+    servoProcess(1);
+    servoProcess(2;
+    servoProcess(1);
+    servoProcess(0);
+    servoProcess(1);
+    servoProcess(2);
+    servoProcess(1);
     servoProcess(0);
 }
 void readLdrValues()
