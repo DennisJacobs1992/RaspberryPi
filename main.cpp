@@ -73,13 +73,16 @@ void readLdrValues()
 
 int main (void)
 {
-    pinMode(15, OUTPUT); //set servo 1 controll pin
-    softPwmCreate(15, 0, 200); //create pwm controll pin for servo 1
-
     cout << "Main function executed\n"; 
     
     //initialize
     wiringPiSetup();
+
+    //test area
+    pinMode(15, OUTPUT); //set servo 1 controll pin
+    softPwmCreate(15, 0, 200); //create pwm controll pin for servo 1
+
+    //wiringPiI2cSetup
     fd = wiringPiI2CSetup (0x68);             //Initialize i2c system. returns
     wiringPiI2CWriteReg8 (fd, 0x6B, 0x00);    //disable sleep mode of GY-6050 sensor module (MPU-6050)
     //cout << "fd value is: " << fd << "\n";
