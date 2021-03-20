@@ -106,7 +106,7 @@ int main (void)
     
     //initialize
     wiringPiSetup();
-    softServoSetup (0, 1, 2, 3, 4, 5, 6, 7)
+    softServoSetup (0, 1, 2, 3, 4, 5, 6, 7);
 
     //test area
 
