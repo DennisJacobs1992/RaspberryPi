@@ -31,30 +31,7 @@ int readMPU6050(int Mpu6050Addr)
 
 void testServoCode()
 {
-    softServoWrite (4, 500) ;
-    delay(2000);
-    // servo test code
-    /*delay(2000);
-    softPwmWrite(4, 0); //write servo 1 controll pin
-    delay(2000);
-    cout << "write 50\n";
-    softPwmWrite(4, 50);
-    delay(2000);
-    cout << "write 100\n";
-    softPwmWrite(4, 100);
-    delay(2000);
-    softPwmWrite(4, 150);
-    delay(2000);
-    softPwmWrite(4, 200);
-    delay(2000);
-    softPwmWrite(4, 150);
-    delay(2000);
-    softPwmWrite(4, 100);
-    delay(2000);
-    softPwmWrite(4, 50);
-    delay(2000);
-    softPwmWrite(4, 0);
-    */
+    softServoWrite(4, 200);
 }
 
 void readLdrValues()
