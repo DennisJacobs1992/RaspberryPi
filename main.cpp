@@ -91,7 +91,9 @@ int main (void)
 
     //test area
     pinMode(4, OUTPUT); //set servo 1 controll pin
-    softPwmCreate(4, 0, 200); //create pwm controll pin for 
+    digitalWrite(1,LOW);
+    softPwmCreate(4, 0, 200); //create pwm controll pin for
+
 
     //wiringPiI2cSetup
     fd = wiringPiI2CSetup (0x68);             //Initialize i2c system. returns
