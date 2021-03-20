@@ -193,6 +193,7 @@ int main (void)
         // testServoCode();
 
         // Readout and scale temperature measurementsensor values (in degree celsius)
+        /*
         temp = readMPU6050(0x41);
         temp = (temp/340) + 36.53;
 
@@ -221,7 +222,9 @@ int main (void)
         cout << "Gyro X: " << gyroX << "\n";
         cout << "Gyro Y: " << gyroY << "\n";
         cout << "Gyro Z: " << gyroZ << "\n";
+        */
         break;
     }
-    return 0;    
+    return 0; 
+
 }
