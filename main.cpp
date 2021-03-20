@@ -152,7 +152,7 @@ int main (void)
     cout << "Main function executed\n"; 
     
     //initialize
-    servoTestCode();
+    testServoCode();
 
     //test area
 
