@@ -13,8 +13,8 @@ using namespace std;
 int fd;
 double accX, accY, accZ, gyroX, gyroY, gyroZ, temp;
 long int ldrValue1, ldrValue2, ldrValue3, ldrValue4;
-int counter;
-int servoPostition;
+//int counter;
+//int servoPostition;
 
 void ConfigPwmGpio(int ConfigPwmGpio)
 {
