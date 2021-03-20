@@ -36,7 +36,7 @@ void testServoCode()
     servoPostition = 0;
     counter = 0;
     while (counter <= 200){
-        digitalWrite(4,HIGH;
+        digitalWrite(4,HIGH);
         delay(20 - servoPostition);
         digitalWrite(4,LOW);
         delay(servoPostition);
@@ -45,7 +45,7 @@ void testServoCode()
     servoPostition = 5;
     counter = 0;
     while (counter <= 200){
-        digitalWrite(4,HIGH;
+        digitalWrite(4,HIGH);
         delay(20 - servoPostition);
         digitalWrite(4,LOW);
         delay(servoPostition);
@@ -54,7 +54,7 @@ void testServoCode()
     servoPostition = 10;
     counter = 0;
     while (counter <= 200){
-        digitalWrite(4,HIGH;
+        digitalWrite(4,HIGH);
         delay(20 - servoPostition);
         digitalWrite(4,LOW);
         delay(servoPostition);
@@ -63,7 +63,7 @@ void testServoCode()
     servoPostition = 15;
     counter = 0;
     while (counter <= 200){
-        digitalWrite(4,HIGH;
+        digitalWrite(4,HIGH);
         delay(20 - servoPostition);
         digitalWrite(4,LOW);
         delay(servoPostition);
@@ -72,7 +72,7 @@ void testServoCode()
     servoPostition = 20;
     counter = 0;
     while (counter <= 200){
-        digitalWrite(4,HIGH;
+        digitalWrite(4,HIGH);
         delay(20 - servoPostition);
         digitalWrite(4,LOW);
         delay(servoPostition);
@@ -81,7 +81,7 @@ void testServoCode()
     servoPostition = 15;
     counter = 0;
     while (counter <= 200){
-        digitalWrite(4,HIGH;
+        digitalWrite(4,HIGH);
         delay(20 - servoPostition);
         digitalWrite(4,LOW);
         delay(servoPostition);
@@ -90,7 +90,7 @@ void testServoCode()
     servoPostition = 10;
     counter = 0;
     while (counter <= 200){
-        digitalWrite(4,HIGH;
+        digitalWrite(4,HIGH);
         delay(20 - servoPostition);
         digitalWrite(4,LOW);
         delay(servoPostition);
@@ -99,7 +99,7 @@ void testServoCode()
     servoPostition = 5;
     counter = 0;
     while (counter <= 200){
-        digitalWrite(4,HIGH;
+        digitalWrite(4,HIGH);
         delay(20 - servoPostition);
         digitalWrite(4,LOW);
         delay(servoPostition);
@@ -108,7 +108,7 @@ void testServoCode()
     servoPostition = 0;
     counter = 0;
     while (counter <= 200){
-        digitalWrite(4,HIGH;
+        digitalWrite(4,HIGH);
         delay(20 - servoPostition);
         digitalWrite(4,LOW);
         delay(servoPostition);
