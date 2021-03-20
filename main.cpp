@@ -33,6 +33,7 @@ int readMPU6050(int Mpu6050Addr)
 
 void testServoCode()
 {
+    /*
     servoPostition = 0;
     counter = 0;
     while (counter <= 200){
@@ -114,6 +115,7 @@ void testServoCode()
         delay(servoPostition);
         counter++;
     }
+    */
 }
 
 void readLdrValues()
@@ -149,8 +151,7 @@ void readLdrValues()
 
 int main (void)
 {
-    cout << "Main function executed\n"; 
-    
+    cout << "Main function executed\n";
     //initialize
 
     //test area
@@ -220,9 +221,7 @@ int main (void)
         cout << "Gyro X: " << gyroX << "\n";
         cout << "Gyro Y: " << gyroY << "\n";
         cout << "Gyro Z: " << gyroZ << "\n";
-        
         break;
     }
- 
     return 0;    
 }
