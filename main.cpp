@@ -2,14 +2,19 @@
 #include <wiringPi.h>
 #include <softPwm.h>
 #include <wiringPiI2C.h>
+#include <softServo.h>
 #include <stdio.h>
 #include <time.h>
+#include <errno.h>
+#include <string.h>
 
 using namespace std;
 
 int fd;
 double accX, accY, accZ, gyroX, gyroY, gyroZ, temp;
 long int ldrValue1, ldrValue2, ldrValue3, ldrValue4;
+//int counter;
+//int servoPostition;
 
 void ConfigPwmGpio(int ConfigPwmGpio)
 {
@@ -28,16 +33,89 @@ int readMPU6050(int Mpu6050Addr)
 
 void testServoCode()
 {
-    // servo test code
-    delay(3000);
-    softPwmWrite(17, 100); //write servo 1 controll pin
-    delay(3000);
-    softPwmWrite(17, 200);
-    delay(3000);
-    softPwmWrite(17, 100);
-    delay(3000);
-    softPwmWrite(17, 0);
-    delay(3000);
+    /*
+    servoPostition = 0;
+    counter = 0;
+    while (counter <= 200){
+        digitalWrite(4,HIGH);
+        delay(20 - servoPostition);
+        digitalWrite(4,LOW);
+        delay(servoPostition);
+        counter++;
+    }
+    servoPostition = 5;
+    counter = 0;
+    while (counter <= 200){
+        digitalWrite(4,HIGH);
+        delay(20 - servoPostition);
+        digitalWrite(4,LOW);
+        delay(servoPostition);
+        counter++;
+    }
+    servoPostition = 10;
+    counter = 0;
+    while (counter <= 200){
+        digitalWrite(4,HIGH);
+        delay(20 - servoPostition);
+        digitalWrite(4,LOW);
+        delay(servoPostition);
+        counter++;
+    }
+    servoPostition = 15;
+    counter = 0;
+    while (counter <= 200){
+        digitalWrite(4,HIGH);
+        delay(20 - servoPostition);
+        digitalWrite(4,LOW);
+        delay(servoPostition);
+        counter++;
+    }
+    servoPostition = 20;
+    counter = 0;
+    while (counter <= 200){
+        digitalWrite(4,HIGH);
+        delay(20 - servoPostition);
+        digitalWrite(4,LOW);
+        delay(servoPostition);
+        counter++;
+    }
+    servoPostition = 15;
+    counter = 0;
+    while (counter <= 200){
+        digitalWrite(4,HIGH);
+        delay(20 - servoPostition);
+        digitalWrite(4,LOW);
+        delay(servoPostition);
+        counter++;
+    }
+    servoPostition = 10;
+    counter = 0;
+    while (counter <= 200){
+        digitalWrite(4,HIGH);
+        delay(20 - servoPostition);
+        digitalWrite(4,LOW);
+        delay(servoPostition);
+        counter++;
+    }
+    servoPostition = 5;
+    counter = 0;
+    while (counter <= 200){
+        digitalWrite(4,HIGH);
+        delay(20 - servoPostition);
+        digitalWrite(4,LOW);
+        delay(servoPostition);
+        counter++;
+    }
+    servoPostition = 0;
+    counter = 0;
+    while (counter <= 200){
+        digitalWrite(4,HIGH);
+        delay(20 - servoPostition);
+        digitalWrite(4,LOW);
+        delay(servoPostition);
+        counter++;
+    }
+    */
 }
 
 void readLdrValues()
@@ -73,10 +151,12 @@ void readLdrValues()
 
 int main (void)
 {
-    cout << "Main function executed\n"; 
-    
+    cout << "Main function executed\n";
     //initialize
-    wiringPiSetup();
+
+    //test area
+
+    //wiringPiI2cSetup
     fd = wiringPiI2CSetup (0x68);             //Initialize i2c system. returns
     wiringPiI2CWriteReg8 (fd, 0x6B, 0x00);    //disable sleep mode of GY-6050 sensor module (MPU-6050)
     //cout << "fd value is: " << fd << "\n";
@@ -113,6 +193,7 @@ int main (void)
         // testServoCode();
 
         // Readout and scale temperature measurementsensor values (in degree celsius)
+        /*
         temp = readMPU6050(0x41);
         temp = (temp/340) + 36.53;
 
@@ -141,9 +222,9 @@ int main (void)
         cout << "Gyro X: " << gyroX << "\n";
         cout << "Gyro Y: " << gyroY << "\n";
         cout << "Gyro Z: " << gyroZ << "\n";
-        
+        */
         break;
     }
- 
-    return 0;    
+    return 0; 
+
 }
