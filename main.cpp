@@ -45,7 +45,7 @@ void testServoCode()
     servoValue = 0;
     servoProcess(0);
     servoProcess(1);
-    servoProcess(2;
+    servoProcess(2);
     servoProcess(1);
     servoProcess(0);
     servoProcess(1);
