@@ -10,6 +10,8 @@ using namespace std;
 int fd;
 double accX, accY, accZ, gyroX, gyroY, gyroZ, temp;
 long int ldrValue1, ldrValue2, ldrValue3, ldrValue4;
+int counter;
+int servoValue;
 
 void ConfigPwmGpio(int ConfigPwmGpio)
 {
@@ -24,18 +26,32 @@ int readMPU6050(int Mpu6050Addr)
     val = -(65536 - val);
     return val;
 }
+
+void servoProcess(int inputServoValue)
+{
+    counter = 0;
+    while (counter < 201){
+       digitalWrite (4, HIGH);
+       delay(20 - inputServoValue); 
+       digitalWrite (4, LOW);
+       delay(inputServoValue); 
+       counter++:
+    } 
+}
+
 void testServoCode()
 {
-    // servo test code
-    delay(3000);
-    softPwmWrite(17, 100); //write servo 1 controll pin
-    delay(3000);
-    softPwmWrite(17, 200);
-    delay(3000);
-    softPwmWrite(17, 100);
-    delay(3000);
-    softPwmWrite(17, 0);
-    delay(3000);
+    digitalWrite (4, LOW);
+    servoValue = 0;
+    servoProcess(0);
+    servoProcess(5);
+    servoProcess(10);
+    servoProcess(15);
+    servoProcess(20);
+    servoProcess(15);
+    servoProcess(10);
+    servoProcess(5);
+    servoProcess(0);
 }
 void readLdrValues()
 {
@@ -76,6 +92,9 @@ int main (void)
     //cout << "fd value is: " << fd << "\n";
     //cout << "Register read for adress 0x6B returns: " << wiringPiI2CReadReg8(fd, 0x6B) << "\n";
     //Config servo pins (17,18,19,20)
+    
+    pinMode(4, OUTPUT);
+
     pinMode(17, OUTPUT); //set servo 1 controll pin
     pinMode(18, OUTPUT); //set servo 2 controll pin
     pinMode(19, OUTPUT); //set servo 3 controll pin
@@ -89,8 +108,6 @@ int main (void)
     pinMode(1, INPUT);
     pinMode(2, INPUT);
     pinMode(3, INPUT);
-
-    pinMode(3, INPUT); 
 
     while(1)
     {
