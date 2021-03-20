@@ -35,7 +35,7 @@ void servoProcess(int inputServoValue)
        delay(20 - inputServoValue); 
        digitalWrite (4, LOW);
        delay(inputServoValue); 
-       counter++:
+       counter++;
     } 
 }
 
