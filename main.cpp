@@ -5,6 +5,8 @@
 #include <softServo.h>
 #include <stdio.h>
 #include <time.h>
+#include <errno.h>
+#include <string.h>
 
 using namespace std;
 
