@@ -29,6 +29,22 @@ int readMPU6050(int Mpu6050Addr)
 
 void testServoCode()
 {
+    softServoWrite (4, 500) ;
+    delay(2000);
+	softServoWrite (4, 700) ;
+    delay(2000);
+	softServoWrite (4, 1000) ;
+    delay(2000);
+	softServoWrite (4, 1200) ;
+    delay(2000);
+	softServoWrite (4, 1500) ;
+    delay(2000);
+	softServoWrite (4, 1700) ;
+    delay(2000);
+	softServoWrite (4, 1900) ;
+    delay(2000);
+	softServoWrite (4, 2200) ;
+    delay(2000);
     // servo test code
     /*delay(2000);
     softPwmWrite(4, 0); //write servo 1 controll pin
@@ -90,10 +106,9 @@ int main (void)
     
     //initialize
     wiringPiSetup();
+    softServoSetup (0, 1, 2, 3, 4, 5, 6, 7)
 
     //test area
-    pinMode(4, OUTPUT); //set servo 1 controll pin
-
 
     //wiringPiI2cSetup
     fd = wiringPiI2CSetup (0x68);             //Initialize i2c system. returns
