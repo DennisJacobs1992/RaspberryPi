@@ -29,15 +29,15 @@ int readMPU6050(int Mpu6050Addr)
 void testServoCode()
 {
     // servo test code
+    delay(2000);
+    softPwmWrite(15, 100); //write servo 1 controll pin
+    delay(2000);
+    softPwmWrite(15, 200);
     delay(3000);
-    softPwmWrite(17, 100); //write servo 1 controll pin
-    delay(3000);
-    softPwmWrite(17, 200);
-    delay(3000);
-    softPwmWrite(17, 100);
-    delay(3000);
-    softPwmWrite(17, 0);
-    delay(3000);
+    softPwmWrite(15, 100);
+    delay(2000);
+    softPwmWrite(15, 0);
+    delay(2000);
 }
 
 void readLdrValues()
@@ -73,6 +73,9 @@ void readLdrValues()
 
 int main (void)
 {
+    pinMode(15, OUTPUT); //set servo 1 controll pin
+    softPwmCreate(15, 0, 200); //create pwm controll pin for servo 1
+
     cout << "Main function executed\n"; 
     
     //initialize
@@ -110,7 +113,7 @@ int main (void)
         */
 
         // Test servo's
-        // testServoCode();
+        testServoCode();
 
         // Readout and scale temperature measurementsensor values (in degree celsius)
         temp = readMPU6050(0x41);
