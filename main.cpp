@@ -13,6 +13,8 @@ using namespace std;
 int fd;
 double accX, accY, accZ, gyroX, gyroY, gyroZ, temp;
 long int ldrValue1, ldrValue2, ldrValue3, ldrValue4;
+int counter;
+int servoPostition;
 
 void ConfigPwmGpio(int ConfigPwmGpio)
 {
@@ -31,7 +33,87 @@ int readMPU6050(int Mpu6050Addr)
 
 void testServoCode()
 {
-    //softServoWrite(4, 200);
+    servoPostition = 0;
+    counter = 0;
+    while (counter <= 200){
+        digitalWrite(4,HIGH;
+        delay(20 - servoPostition);
+        digitalWrite(4,LOW);
+        delay(servoPostition);
+        counter++;
+    }
+    servoPostition = 5;
+    counter = 0;
+    while (counter <= 200){
+        digitalWrite(4,HIGH;
+        delay(20 - servoPostition);
+        digitalWrite(4,LOW);
+        delay(servoPostition);
+        counter++;
+    }
+    servoPostition = 10;
+    counter = 0;
+    while (counter <= 200){
+        digitalWrite(4,HIGH;
+        delay(20 - servoPostition);
+        digitalWrite(4,LOW);
+        delay(servoPostition);
+        counter++;
+    }
+    servoPostition = 15;
+    counter = 0;
+    while (counter <= 200){
+        digitalWrite(4,HIGH;
+        delay(20 - servoPostition);
+        digitalWrite(4,LOW);
+        delay(servoPostition);
+        counter++;
+    }
+    servoPostition = 20;
+    counter = 0;
+    while (counter <= 200){
+        digitalWrite(4,HIGH;
+        delay(20 - servoPostition);
+        digitalWrite(4,LOW);
+        delay(servoPostition);
+        counter++;
+    }
+    servoPostition = 15;
+    counter = 0;
+    while (counter <= 200){
+        digitalWrite(4,HIGH;
+        delay(20 - servoPostition);
+        digitalWrite(4,LOW);
+        delay(servoPostition);
+        counter++;
+    }
+    servoPostition = 10;
+    counter = 0;
+    while (counter <= 200){
+        digitalWrite(4,HIGH;
+        delay(20 - servoPostition);
+        digitalWrite(4,LOW);
+        delay(servoPostition);
+        counter++;
+    }
+    servoPostition = 5;
+    counter = 0;
+    while (counter <= 200){
+        digitalWrite(4,HIGH;
+        delay(20 - servoPostition);
+        digitalWrite(4,LOW);
+        delay(servoPostition);
+        counter++;
+    }
+    servoPostition = 0;
+    counter = 0;
+    while (counter <= 200){
+        digitalWrite(4,HIGH;
+        delay(20 - servoPostition);
+        digitalWrite(4,LOW);
+        delay(servoPostition);
+        counter++;
+    }
 }
 
 void readLdrValues()
@@ -70,8 +152,7 @@ int main (void)
     cout << "Main function executed\n"; 
     
     //initialize
-    wiringPiSetup();
-    softServoSetup (0, 1, 2, 3, 4, 5, 6, 7);
+    servoTestCode();
 
     //test area
 
