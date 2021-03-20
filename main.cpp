@@ -32,8 +32,10 @@ void testServoCode()
     delay(2000);
     softPwmWrite(4, 0); //write servo 1 controll pin
     delay(2000);
+    cout << "write 50\n";
     softPwmWrite(4, 50);
     delay(2000);
+    cout << "write 100\n";
     softPwmWrite(4, 100);
     delay(2000);
     softPwmWrite(4, 150);
