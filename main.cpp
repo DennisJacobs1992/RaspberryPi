@@ -31,7 +31,7 @@ int readMPU6050(int Mpu6050Addr)
 
 void testServoCode()
 {
-    softServoWrite(4, 200);
+    //softServoWrite(4, 200);
 }
 
 void readLdrValues()
