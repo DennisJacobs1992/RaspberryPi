@@ -33,20 +33,6 @@ void testServoCode()
 {
     softServoWrite (4, 500) ;
     delay(2000);
-	softServoWrite (4, 700) ;
-    delay(2000);
-	softServoWrite (4, 1000) ;
-    delay(2000);
-	softServoWrite (4, 1200) ;
-    delay(2000);
-	softServoWrite (4, 1500) ;
-    delay(2000);
-	softServoWrite (4, 1700) ;
-    delay(2000);
-	softServoWrite (4, 1900) ;
-    delay(2000);
-	softServoWrite (4, 2200) ;
-    delay(2000);
     // servo test code
     /*delay(2000);
     softPwmWrite(4, 0); //write servo 1 controll pin
