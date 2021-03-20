@@ -152,7 +152,6 @@ int main (void)
     cout << "Main function executed\n"; 
     
     //initialize
-    testServoCode();
 
     //test area
 
@@ -180,6 +179,7 @@ int main (void)
 
     while(1)
     {
+        testServoCode();
         // Test Read LDR values
         /*
         readLdrValues();
