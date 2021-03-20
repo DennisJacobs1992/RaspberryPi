@@ -179,7 +179,6 @@ int main (void)
 
     while(1)
     {
-        testServoCode();
         // Test Read LDR values
         /*
         readLdrValues();
