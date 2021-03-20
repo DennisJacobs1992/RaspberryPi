@@ -32,11 +32,23 @@ void testServoCode()
     delay(2000);
     softPwmWrite(4, 0); //write servo 1 controll pin
     delay(2000);
-    softPwmWrite(4, 200);
+    softPwmWrite(4, 1);
     delay(3000);
     softPwmWrite(4, 0);
     delay(2000);
-    softPwmWrite(4, 100);
+    softPwmWrite(4, 1);
+    delay(2000);
+    softPwmWrite(4, 0);
+    delay(2000);
+    softPwmWrite(4, 1);
+    delay(2000);
+    softPwmWrite(4, 0);
+    delay(2000);
+    softPwmWrite(4, 1);
+    delay(2000);
+    softPwmWrite(4, 0);
+    delay(2000);
+    softPwmWrite(4, 1);
     delay(2000);
 }
 
@@ -80,7 +92,7 @@ int main (void)
 
     //test area
     pinMode(4, OUTPUT); //set servo 1 controll pin
-    softPwmCreate(4, 0, 200); //create pwm controll pin for 
+    softPwmCreate(4, 0, 1); //create pwm controll pin for 
 
     //wiringPiI2cSetup
     fd = wiringPiI2CSetup (0x68);             //Initialize i2c system. returns
