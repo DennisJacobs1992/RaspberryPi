@@ -29,12 +29,6 @@ int readMPU6050(int Mpu6050Addr)
 
 void testServoCode()
 {
-     gpio -g mode 18 pwm
-     gpio pwm-ms
-     gpio pwmc 192
-     gpio pwmr 2000
-     gpio -g pwm 18 150
-     gpio -g pwm 18 200
     // servo test code
     /*delay(2000);
     softPwmWrite(4, 0); //write servo 1 controll pin
