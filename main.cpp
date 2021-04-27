@@ -4,6 +4,8 @@
 #include <wiringPiI2C.h>
 #include <stdio.h>
 #include <time.h>
+#include "MPU9250.h"
+#include "ESC.h"
 
 using namespace std;
 

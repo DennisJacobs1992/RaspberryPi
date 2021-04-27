@@ -1,7 +1,0 @@
-MPU6050 (same as GT-521)
-5V power regulator with protection pin 2 (5v) and a ground pin (up to 3A)
-SD05CRMA
-
-lithium BMS
-
-
