@@ -61,7 +61,7 @@ int main (void)
         cout << "While loop executed\n";
         MPU9250 MPU9250object;
         MPU9250object.readSensorValue(fd, MPU9250Values);
-        MPU9250object.printAllSensorValues();
+        MPU9250object.printAllSensorValues(MPU9250Values);
 
         /*
         // Readout and scale temperature measurementsensor values (in degree celsius)
