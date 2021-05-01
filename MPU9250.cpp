@@ -34,6 +34,19 @@ void MPU9250::readSensorValue(int &fd,double &value){
     }
 }
 
+void MPU9250::printAllSensorValues(){
+        cout << "*** MPU9250 Sensor Values ***\n";
+        cout << "Acceleration X: " << (MPU9250Values[0]) << endl;
+        cout << "Acceleration Y: " << (MPU9250Values[1]) << endl;
+        cout << "Acceleration Z: " << (MPU9250Values[2]) << endl;
+        cout << "Gyro X: " << (MPU9250Values[4]) << endl;
+        cout << "Gyro Y: " << (MPU9250Values[5]) << endl;
+        cout << "Gyro Z: " << (MPU9250Values[6]) << endl;
+        cout << "Temp : " << (MPU9250Values[3]) << " degree celsius\n";
+        cout << "*****************************\n";
+
+}
+
 void MPU9250::calculateSensorValue(double &n){
 
 }
