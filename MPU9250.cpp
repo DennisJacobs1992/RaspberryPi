@@ -8,7 +8,7 @@ MPU9250::MPU9250(){
     //tbd
 }
 
-void MPU9250::readSensorValue(int &fd,double &value[7]){
+void MPU9250::readSensorValue(int &fd,double (&value)[7]){
     
     int MPU9250register = 0x3B;
     int arrayIndex = 0;
@@ -33,7 +33,7 @@ void MPU9250::readSensorValue(int &fd,double &value[7]){
         arrayIndex++;
     }
 }
-
+/*
 void MPU9250::printAllSensorValues(double &valuen[7]){
         cout << "*** MPU9250 Sensor Values ***\n";
         cout << "Acceleration X: " << (valuen[0]) << endl;
@@ -46,6 +46,7 @@ void MPU9250::printAllSensorValues(double &valuen[7]){
         cout << "*****************************\n";
 
 }
+*/
 
 void MPU9250::calculateSensorValue(double &n){
 
