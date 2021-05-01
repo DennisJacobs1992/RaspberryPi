@@ -1,10 +1,11 @@
 #ifndef ESC_H
 #define ESC_H
 
+using namespace std;
+
 class ESC{
     public:
-    double Rotor;
     //tbd
 };
 
-#endif // ESC_H
+#endif //ESC_H
