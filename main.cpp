@@ -33,7 +33,7 @@ void initBoard(){
 }
 
 void quadCntrl(){
-    //TBD
+
 }
 
 void Sim7600X4GHatCntrl(){
@@ -59,10 +59,16 @@ int main (void)
     while(1)
     {
         cout << "While loop executed\n";
-        MPU9250 accX;
-        accX.readSensorValue(fd, 0x3B, MPU9250Values[0]);
+        MPU9250 MPU9250object;
+        MPU9250object.readSensorValue(fd, MPU9250Values);
         cout << "Acceleration X: " << (MPU9250Values[0]/16384) << endl;
-        cout << "First \n";
+        cout << "Acceleration Y: " << (MPU9250Values[1]/16384) << endl;
+        cout << "Acceleration Z: " << (MPU9250Values[2]/16384) << endl;
+        cout << "Gyro X: " << (MPU9250Values[4]/131) << endl;
+        cout << "Gyro Y: " << (MPU9250Values[5]/131) << endl;
+        cout << "Gyro Z: " << (MPU9250Values[6]/131) << endl;
+        cout << "Temp : " << (MPU9250Values[3]/131) << " degree celsius\n";
+        
         /*
         // Readout and scale temperature measurementsensor values (in degree celsius)
         temp = readMPU6050(0x41);
