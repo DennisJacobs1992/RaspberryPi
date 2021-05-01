@@ -8,7 +8,6 @@ class MPU9250{
         MPU9250();
         void readSensorValue(int &fd, double (&MPU9250ValueArray)[7]);
         void printAllSensorValues(double (&MPU9250ValueArray)[7]);
-        void calculateSensorValue(double &n);
 };
 
 #endif // MPU9250

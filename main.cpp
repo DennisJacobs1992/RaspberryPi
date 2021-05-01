@@ -33,7 +33,9 @@ void initBoard(){
 }
 
 void quadCntrl(){
-
+    MPU9250 MPU9250object;
+    MPU9250object.readSensorValue(fd, MPU9250Values);
+    MPU9250object.printAllSensorValues(MPU9250Values);
 }
 
 void Sim7600X4GHatCntrl(){
@@ -47,11 +49,11 @@ int main (void)
     //initialize board
     initBoard();
     
-    /*
     //auto enable threads
     thread quadCntrlT(quadCntrl);
-    quadCnrtT.detac();
+    //quadCnrtT.detac();
 
+    /*
     thread Sim7600X4GHatCntrlT(Sim7600X4GHatCntrl);
     Sim7600X4GHatCntrlT.detach();
     */
@@ -59,37 +61,9 @@ int main (void)
     while(1)
     {
         cout << "While loop executed\n";
-        MPU9250 MPU9250object;
-        MPU9250object.readSensorValue(fd, MPU9250Values);
-        MPU9250object.printAllSensorValues(MPU9250Values);
+        quadCntrl.join();
 
-        /*
-        // Readout and scale temperature measurementsensor values (in degree celsius)
-        temp = readMPU6050(0x41);
-        temp = (temp/340) + 36.53;
-        // Readout and scale accelerometer measurements (full scale range +/- 2g)
-        accX = readMPU6050(0x3B);
-        accX = accX/16384;
-        accY = readMPU6050(0x3D);
-        accY = accY/16384;
-        accZ = readMPU6050(0x3F);
-        accZ = accZ/16384;
-        // Readout and scale gyroscope measurements (full scale range +/- 250 degrees/second)
-        gyroX = readMPU6050(0x43);
-        gyroX = gyroX/131;
-        gyroY = readMPU6050(0x45);
-        gyroY = gyroY/131;
-        gyroZ = readMPU6050(0x47);
-        gyroZ = gyroZ/131;
-        cout << "Temperature: " << temp << " degree celsius\n";
-        
-        cout << "Acceleration X: " << accX << "\n";
-        cout << "Acceleration Y: " << accY << "\n";
-        cout << "Acceleration Z: " << accZ << "\n";
-        cout << "Gyro X: " << gyroX << "\n";
-        cout << "Gyro Y: " << gyroY << "\n";
-        cout << "Gyro Z: " << gyroZ << "\n";
-        */
+
         break;
     }
 

@@ -46,8 +46,3 @@ void MPU9250::printAllSensorValues(double (&value)[7]){
         cout << "*****************************\n";
 
 }
-
-
-void MPU9250::calculateSensorValue(double &n){
-
-}
