@@ -3,11 +3,10 @@
 
 using namespace std;
 
-double temp
-
 class MPU9250{
     public:
-        void readSensorValues(double &n);
+        MPU9250();
+        void readSensorValue(double &n);
         void calculateSensorValue(double &n);
 };
 
