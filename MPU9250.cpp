@@ -34,7 +34,7 @@ void MPU9250::readSensorValue(int &fd,double (&MPU9250ValueArray)[7]){
     }
 }
 
-void MPU9250::printAllSensorValues(double (&value)[7]){
+void MPU9250::printAllSensorValues(double (&MPU9250ValueArray)[7]){
         cout << "*** MPU9250 Sensor Values ***\n";
         cout << "Acceleration X: " << (MPU9250ValueArray[0]) << endl;
         cout << "Acceleration Y: " << (MPU9250ValueArray[1]) << endl;
