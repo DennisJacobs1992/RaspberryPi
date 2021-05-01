@@ -4,7 +4,7 @@
 #include <wiringPiI2C.h>
 #include <stdio.h>
 #include <time.h>
-#include <thread.h>
+#include <thread>
 #include "MPU9250.h"
 #include "ESC.h"
 
@@ -57,10 +57,10 @@ int main (void)
 
     while(1)
     {
-        
+        cout << "While loop executed\n";
         MPU9250.readSensorValues(0x3B,&MPU9250Values[0]);
         cout << "Acceleration X: " << (MPU9250Values[0]/16384) << endl;
-
+        cout << "First \n";
         /*
         // Readout and scale temperature measurementsensor values (in degree celsius)
         temp = readMPU6050(0x41);
