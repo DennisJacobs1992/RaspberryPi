@@ -61,7 +61,7 @@ int main (void)
     while(1)
     {
         cout << "While loop executed\n";
-        quadCntrl.
+        quadCntrl.join();
 
 
         break;
