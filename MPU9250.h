@@ -6,7 +6,7 @@ using namespace std;
 class MPU9250{
     public:
         MPU9250();
-        void readSensorValue(double &n);
+        void readSensorValue(int,double &n);
         void calculateSensorValue(double &n);
 };
 
