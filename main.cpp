@@ -59,7 +59,7 @@ int main (void)
     {
         cout << "While loop executed\n";
         MPU9250 accX;
-        accX.readSensorValue(0x3B,&MPU9250Values[0]);
+        accX.readSensorValue(0x3B,MPU9250Values[0]);
         cout << "Acceleration X: " << (MPU9250Values[0]/16384) << endl;
         cout << "First \n";
         /*
