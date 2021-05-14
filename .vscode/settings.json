@@ -11,6 +11,7 @@
         "type_traits": "cpp",
         "utility": "cpp",
         "iostream": "cpp",
-        "ratio": "cpp"
+        "ratio": "cpp",
+        "thread": "cpp"
     }
 }
