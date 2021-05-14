@@ -4,11 +4,12 @@
 
 using namespace std;
 
+int fd;
+
 #define LDR_1 3
 //#define LDR_2 15
 //#define LDR_3 15
 //#define LDR_4 15
-
 
 init::init(){
     cout << "System initialization started\n";

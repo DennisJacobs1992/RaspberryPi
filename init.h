@@ -8,4 +8,4 @@ class init{
         init(); 
 };
 
-#endif // MPU9250
+#endif // INIT

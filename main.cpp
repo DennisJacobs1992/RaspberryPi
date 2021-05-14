@@ -12,25 +12,8 @@
 
 using namespace std;
 
-int fd;
 double MPU9250Values[7];
 long int ldrValues[4];
-
-void initBoard(){
-    //Config I2C bus
-    wiringPiSetup();
-    fd = wiringPiI2CSetup (0x68);             //Initialize i2c system. returns
-    wiringPiI2CWriteReg8 (fd, 0x6B, 0x00);    //disable sleep mode of GY-6050 sensor module (MPU-6050)
-    cout << "I2C bus is initialized\n";
-
-    
-    //config ldr pins (0,1,2,3)
-    pinMode(15, INPUT);
-    pinMode(1, INPUT);
-    pinMode(2, INPUT);
-    pinMode(3, INPUT);
-    //cout << "LDR pins configured\n";
-}
 
 void quadCntrl(){
     MPU9250 MPU9250Object;
@@ -63,7 +46,6 @@ int main (void)
     {
         cout << "While loop executed\n";
         quadCntrlT.join();
-
 
         break;
     }
