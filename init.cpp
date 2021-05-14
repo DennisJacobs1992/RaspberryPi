@@ -10,7 +10,7 @@ using namespace std;
 //#define LDR_4 15
 
 init::init(){
-
+    //tbd
 }
 
 void init::initGpio(int &fd){
