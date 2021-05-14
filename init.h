@@ -5,7 +5,8 @@ using namespace std;
 
 class init{
     public:
-        init(); 
+        init();
+        void initGpio(int &fd); 
 };
 
 #endif // INIT

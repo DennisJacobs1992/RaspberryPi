@@ -12,6 +12,8 @@
 
 using namespace std;
 
+int fd;
+
 double MPU9250Values[7];
 long int ldrValues[4];
 
@@ -31,6 +33,7 @@ int main (void)
 
     //initialize board
     init initObject;
+    initObject.initGpio(fd);
     
     //auto enable threads
     thread quadCntrlT(quadCntrl);
