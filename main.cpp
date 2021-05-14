@@ -8,7 +8,7 @@
 #include "MPU9250.h"
 #include "MPU9250.cpp"
 #include "ESC.h"
-#include "init.h"
+#include "INIT.h"
 
 using namespace std;
 
@@ -32,7 +32,7 @@ int main (void)
     cout << "Main function executed\n";
 
     //initialize board
-    init initObject;
+    INIT initObject;
     initObject.initGpio(fd);
     
     //auto enable threads

@@ -1,11 +1,11 @@
-#ifndef init_H
-#define init_H
+#ifndef INIT_H
+#define INIT_H
 
 using namespace std;
 
-class init{
+class INIT{
     public:
-        init();
+        INIT();
         void initGpio(int &fd); 
 };
 
