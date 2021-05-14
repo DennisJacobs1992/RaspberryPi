@@ -1,5 +1,5 @@
-#ifndef INIT_H
-#define INIT_H
+#ifndef init_H
+#define init_H
 
 using namespace std;
 
@@ -9,4 +9,4 @@ class init{
         void initGpio(int &fd); 
 };
 
-#endif // INIT
+#endif // init
