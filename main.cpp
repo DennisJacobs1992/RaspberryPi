@@ -32,7 +32,7 @@ int main (void)
     cout << "Main function executed\n";
 
     //initialize board
-    INIT initObject;
+    init initObject;
     initObject.initGpio(fd);
     
     //auto enable threads
