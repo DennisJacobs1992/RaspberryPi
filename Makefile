@@ -1,5 +1,5 @@
 ouput: main.o
-	g++ main.o -lwiringPi  -o output
+	g++ main.o -lwiringPi -pthread -o output
 
 main.o: main.cpp
 	g++ -c main.cpp -lwiringPi
