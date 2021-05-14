@@ -22,9 +22,7 @@ void LDR::getLDRValues(){
     for (digitalRead (3) != 1){
         //do noting (in future, an interupt based system should be used
     }
-        while (ldrCheck == false)
-        {
-        
-        }
+    while (ldrCheck == false){
+        //tbd
     }
 }
