@@ -10,6 +10,8 @@
 #include "ESC.h"
 #include "init.h"
 #include "init.cpp"
+#include "LDR.h"
+#include "LDR.cpp"
 
 using namespace std;
 
@@ -22,6 +24,12 @@ void quadCntrl(){
     MPU9250 MPU9250Object;
     MPU9250Object.readSensorValue(fd, MPU9250Values);
     MPU9250Object.printAllSensorValues(MPU9250Values);
+}
+
+void solarCntrl(){
+    LDR LDRObject;
+    LDRObject.getLDRValues();
+
 }
 
 void Sim7600X4GHatCntrl(){
@@ -38,7 +46,7 @@ int main (void)
     
     //auto enable threads
     thread quadCntrlT(quadCntrl);
-
+    //thread solarCntrlT(solarCntrl);
     //quadCnrtT.detac();
 
     /*
@@ -50,6 +58,7 @@ int main (void)
     {
         cout << "While loop executed\n";
         quadCntrlT.join();
+        //solarCntrlT();
 
         break;
     }
