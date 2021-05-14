@@ -1,5 +1,5 @@
 #include <iostream>
-#include "INIT.h"
+#include "init.h"
 #include <wiringPi.h>
 
 using namespace std;
@@ -9,11 +9,11 @@ using namespace std;
 //#define LDR_3 15
 //#define LDR_4 15
 
-INIT::INIT(){
+init::init(){
 
 }
 
-void INIT::initGpio(int &fd){
+void init::initGpio(int &fd){
     cout << "System initialization started\n";
     //Config I2C bus
     wiringPiSetup();

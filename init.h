@@ -3,10 +3,10 @@
 
 using namespace std;
 
-class INIT{
+class init{
     public:
-        INIT();
+        init();
         void initGpio(int &fd); 
 };
 
-#endif // init
+#endif // INIT

@@ -8,7 +8,7 @@
 #include "MPU9250.h"
 #include "MPU9250.cpp"
 #include "ESC.h"
-#include "INIT.h"
+#include "init.h"
 
 using namespace std;
 
