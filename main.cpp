@@ -8,6 +8,7 @@
 #include "MPU9250.h"
 #include "MPU9250.cpp"
 #include "ESC.h"
+#include "init.h"
 
 using namespace std;
 
@@ -22,20 +23,19 @@ void initBoard(){
     wiringPiI2CWriteReg8 (fd, 0x6B, 0x00);    //disable sleep mode of GY-6050 sensor module (MPU-6050)
     cout << "I2C bus is initialized\n";
 
-    /*
+    
     //config ldr pins (0,1,2,3)
-    pinMode(0, INPUT);
+    pinMode(15, INPUT);
     pinMode(1, INPUT);
     pinMode(2, INPUT);
     pinMode(3, INPUT);
-    cout << "LDR pins configured\n";
-    */
+    //cout << "LDR pins configured\n";
 }
 
 void quadCntrl(){
-    MPU9250 MPU9250object;
-    MPU9250object.readSensorValue(fd, MPU9250Values);
-    MPU9250object.printAllSensorValues(MPU9250Values);
+    MPU9250 MPU9250Object;
+    MPU9250Object.readSensorValue(fd, MPU9250Values);
+    MPU9250Object.printAllSensorValues(MPU9250Values);
 }
 
 void Sim7600X4GHatCntrl(){
@@ -47,10 +47,11 @@ int main (void)
     cout << "Main function executed\n";
 
     //initialize board
-    initBoard();
+    init initObject;
     
     //auto enable threads
     thread quadCntrlT(quadCntrl);
+
     //quadCnrtT.detac();
 
     /*
