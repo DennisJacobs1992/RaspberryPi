@@ -1,6 +1,6 @@
 #include <iostream>
 #include "LDR.h"
-#include <wiringPiI2C.h>
+#include <wiringPi.h>
 
 using namespace std;
 
