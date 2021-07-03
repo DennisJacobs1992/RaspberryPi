@@ -5,62 +5,45 @@
 #include <stdio.h>
 #include <time.h>
 #include <thread>
-#include "MPU9250.h"
-#include "MPU9250.cpp"
-#include "ESC.h"
-#include "init.h"
-#include "init.cpp"
-#include "LDR.h"
-#include "LDR.cpp"
 
-using namespace std;
+//Custom Includes
+#include "init.h"
+#include "userInputManager.h"
+#include "flightControlManager.h"
+#include "solarControlManager.h"
+
+
+#define EXPLANTSOLAR 0
+#define COLLAPSSOLAR 1
+#define SEARCHSUN 2
+#define CHECKSTATUS 3
 
 int fd;
-
-double MPU9250Values[7];
-long int ldrValues[4];
-
-void quadCntrl(){
-    MPU9250 MPU9250Object;
-    MPU9250Object.readSensorValue(fd, MPU9250Values);
-    MPU9250Object.printAllSensorValues(MPU9250Values);
-}
-
-void solarCntrl(){
-    LDR LDRObject;
-    LDRObject.getLDRValues();
-
-}
-
-void Sim7600X4GHatCntrl(){
-    //TBD
-}
+bool quit = 0;
 
 int main (void)
 {
-    cout << "Main function executed\n";
+    cout << "#--- Main function executed\n";
 
     //initialize board
     init initObject;
     initObject.initGpio(fd);
-    
-    //auto enable threads
-    thread quadCntrlT(quadCntrl);
-    //thread solarCntrlT(solarCntrl);
-    //quadCnrtT.detac();
+    cout << "#--- GPIO's set\n";
 
-    /*
-    thread Sim7600X4GHatCntrlT(Sim7600X4GHatCntrl);
-    Sim7600X4GHatCntrlT.detach();
-    */
+    //check battery status
 
-    while(1)
+    //cheate instances
+        //user input manager
+        //configuration manager
+        //battery management
+        //flight control
+        //solar control
+    while(quit!=1)
     {
-        cout << "While loop executed\n";
-        quadCntrlT.join();
-        //solarCntrlT();
-
-        break;
+        //get user input
+        //if something changed for the configuration, do some configuration adjustments
+        //if fligt control is active, perform fligt control
+        //if solar control is active, perform solar control
     }
 
     return 0;    
