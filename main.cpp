@@ -1,5 +1,5 @@
 #include <iostream>
-//#include <wiringPi.h>
+#include <wiringPi.h>
 //#include <softPwm.h>
 //#include <wiringPiI2C.h>
 //#include <stdio.h>
