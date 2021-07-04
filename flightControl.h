@@ -1,5 +1,5 @@
-#ifndef MPU9250_H
-#define MPU9250_H
+#ifndef FLIGHTCONTROL_H
+#define FLIGHTCONTROL_H
 
 using namespace std;
 

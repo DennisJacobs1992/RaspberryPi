@@ -1,5 +1,5 @@
-#ifndef LDR_H
-#define LDR_H
+#ifndef SOLARCONTROL_H
+#define SOLARCONTROL_H
 
 using namespace std;
 

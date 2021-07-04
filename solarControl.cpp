@@ -1,5 +1,5 @@
 #include <iostream>
-#include "LDR.h"
+#include "solarControl.h"
 #include <wiringPi.h>
 
 using namespace std;
