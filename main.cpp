@@ -9,13 +9,13 @@
 
 //custom includes
 //#include "init.h"
-#include "userInputManager.h"
+//#include "userInputManager.h"
 #include "flightControl.h"
 #include "solarControl.h"
 
 //temp addition of .cpp files until makefile works
 //#include "init.cpp"
-#include "userInputManager.cpp"
+//#include "userInputManager.cpp"
 #include "flightControl.cpp"
 #include "solarControl.cpp"
 
