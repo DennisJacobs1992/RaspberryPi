@@ -2,7 +2,7 @@
 #define USERINPUTMANAGER_H
 
 #include <stdio.h>
-#include "sting.h"
+#include "string.h"
 #include <stdio.h>
 
 class userInputManager{
