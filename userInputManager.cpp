@@ -1,5 +1,7 @@
 #include <iostream>
+#include <fstream>
 #include "userInputManager.h"
+
 
 bool userInputManager::checkUserInputManagerFile(){
     return false;
