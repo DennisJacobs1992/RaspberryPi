@@ -16,8 +16,7 @@ class userInputManager{
         
         bool checkUserInputManagerFile();
         void setcheckUserInputManagerFile();
-        bool solarconfig = 0;
-        bool solarconfig = 0;    
+        bool flightcontrol = 0;   
 };
 
 #endif // LDR
