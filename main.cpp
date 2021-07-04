@@ -9,8 +9,8 @@
 //custom includes
 #include "init.h"
 #include "userInputManager.h"
-#include "flightControlManager.h"
-#include "solarControlManager.h"
+#include "flightControl.h"
+#include "solarControl.h"
 
 
 #define EXPLANTSOLAR 0
