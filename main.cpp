@@ -1,10 +1,10 @@
 #include <iostream>
 #include <wiringPi.h>
-//#include <softPwm.h>
-//#include <wiringPiI2C.h>
-//#include <stdio.h>
-//#include <time.h>
-//#include <thread>
+#include <softPwm.h>
+#include <wiringPiI2C.h>
+#include <stdio.h>
+#include <time.h>
+#include <thread>
 
 /*
 //custom includes
