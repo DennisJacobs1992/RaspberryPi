@@ -1,5 +1,5 @@
 #include <iostream>
-#include "MPU9250.h"
+#include "flightControl.h"
 #include <wiringPiI2C.h>
 
 using namespace std;
