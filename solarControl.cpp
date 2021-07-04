@@ -17,12 +17,5 @@ void LDR::checkLDRstatus(){
 } 
 
 void LDR::getLDRValues(){
-    //<future code to do it for all pins>
-    //prevTime = 
-    for (digitalRead(3) != true){
-        //do noting (in future, an interupt based system should be used
-    }
-    while (ldrCheck == false){
-        //tbd
-    }
+    //future code to do it for all pins>
 }

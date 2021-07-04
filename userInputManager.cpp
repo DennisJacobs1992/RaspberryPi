@@ -1,11 +1,11 @@
 #include <iostream>
 #include "userInputManager.h"
 
-userInputManager::checkUserInputManagerFile(){
-
+bool userInputManager::checkUserInputManagerFile(){
+    return false;
 }
 
-userInputManager::setcheckUserInputManagerFile(){
+void userInputManager::setcheckUserInputManagerFile(){
     // create interface file
     ofstream userInputManagerFile;
     userInputManagerFile.open("customCommands.txt");
