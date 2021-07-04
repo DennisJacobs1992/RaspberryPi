@@ -10,7 +10,7 @@
 //custom includes
 //#include "init.h"
 #include "userInputManager.h"
-#include "flightControl.h"
+//#include "flightControl.h"
 #include "solarControl.h"
 
 //temp addition of .cpp files until makefile works
