@@ -6,35 +6,29 @@
 #include <time.h>
 #include <thread>
 
-/*
+
 //custom includes
-#include "init.h"
+//#include "init.h"
 #include "userInputManager.h"
 #include "flightControl.h"
 #include "solarControl.h"
 
 //temp addition of .cpp files until makefile works
-#include "init.cpp"
+//#include "init.cpp"
 #include "userInputManager.cpp"
 #include "flightControl.cpp"
 #include "solarControl.cpp"
-
 
 #define EXPLANTSOLAR 0
 #define COLLAPSSOLAR 1
 #define SEARCHSUN 2
 #define CHECKSTATUS 3
-*/
 
 int fd;
 bool quit = 0;
  
 int main (void)
 {
-    wiringPiSetup();
-    fd = wiringPiI2CSetup (0x68);             //Initialize i2c system. returns
-    wiringPiI2CWriteReg8 (fd, 0x6B, 0x00);    //disable sleep mode of GY-6050 sensor module (MPU-6050)
-    
     std::cout << "#--- Main function executed\n";
 
     //initialize board
