@@ -7,7 +7,7 @@ bool userInputManager::checkUserInputManagerFile(){
 
 void userInputManager::setcheckUserInputManagerFile(){
     // create interface file
-    ofstream userInputManagerFile;
+    std::ofstream userInputManagerFile;
     userInputManagerFile.open("customCommands.txt");
     for(int i = 0; i < customCommands.size(); i++){
         userInputManagerFile << customCommands[i] << std::endl;
