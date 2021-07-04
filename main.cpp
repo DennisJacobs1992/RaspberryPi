@@ -14,10 +14,6 @@
 #include "solarControl.h"
 
 //temp addition of .cpp files until makefile works
-//#include "init.cpp"
-#include "userInputManager.cpp"
-#include "flightControl.cpp"
-#include "solarControl.cpp"
 
 #define EXPLANTSOLAR 0
 #define COLLAPSSOLAR 1
