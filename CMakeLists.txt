@@ -8,5 +8,4 @@ file(GLOB_RECURSE SRC_FILES src/*.cpp)
 add_executable(quadcopterPi main.cpp ${SRC_FILES})
 target_include_directories(quadcopterPi PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-find_library(wiringPi_LIB wiringPi)
-target_link_libraries(Object ${wiringPi_LIB})
+add_definitions(-std=c++0x -lwiringPi -lpthread)
