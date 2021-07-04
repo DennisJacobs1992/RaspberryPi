@@ -4,7 +4,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(quadcopterPi VERSION 1.0)
 
-file(GLOB_RECURSE SRC_FILES ../src/*.cpp)
+file(GLOB_RECURSE SRC_FILES src/*.cpp)
 add_executable(quadcopterPi main.cpp ${SRC_FILES})
 
 find_library(WIRINGPI_LIBRARIES NAMES wiringPi)
