@@ -6,7 +6,7 @@
 #include <time.h>
 #include <thread>
 
-//Custom Includes
+//custom includes
 #include "init.h"
 #include "userInputManager.h"
 #include "flightControlManager.h"
@@ -20,15 +20,15 @@
 
 int fd;
 bool quit = 0;
-
+ 
 int main (void)
 {
-    cout << "#--- Main function executed\n";
+    std::cout << "#--- Main function executed\n";
 
     //initialize board
     init initObject;
     initObject.initGpio(fd);
-    cout << "#--- GPIO's set\n";
+    std::cout << "#--- GPIO's set\n";
 
     //check battery status
 
@@ -40,10 +40,14 @@ int main (void)
         //solar control
     while(quit!=1)
     {
+        userInputManager userInputManagerObj;
+        userInputManagerObj.setcheckUserInputManagerFile();
         //get user input
         //if something changed for the configuration, do some configuration adjustments
         //if fligt control is active, perform fligt control
         //if solar control is active, perform solar control
+
+        quit = 1;
     }
 
     return 0;    
